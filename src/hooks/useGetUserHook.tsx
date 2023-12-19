@@ -71,11 +71,11 @@ export const MyUserContextProvider = (props: Props) => {
   return <UserContext.Provider value={value} {...props} />;
 };
 
-export const getUserHook = () => {
+export const useGetUserHook = () => {
   const context = useContext(UserContext);
   if (context === undefined) {
     throw new Error(
-      "you must use 'getUserHook' within the MyUserContextProvider"
+      "you must use 'useGetUserHook' within the MyUserContextProvider"
     );
   }
   return context;

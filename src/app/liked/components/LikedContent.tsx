@@ -1,8 +1,8 @@
 "use client";
 import LikedButton from "@/components/LikedButton";
 import MediaItem from "@/components/MediaItem";
-import { getUserHook } from "@/hooks/getUserHook";
-import onPlayHook from "@/hooks/onPlayHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
+import useOnPlayHook from "@/hooks/useOnPlayHook";
 import { Song } from "@/types/types-custom";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -13,8 +13,8 @@ interface likedContentProps {
 
 const LikedContent = (props: likedContentProps) => {
   const router = useRouter();
-  const onPlay = onPlayHook(props.songs);
-  const { user, isLoading } = getUserHook();
+  const onPlay = useOnPlayHook(props.songs);
+  const { user, isLoading } = useGetUserHook();
   useEffect(() => {
     if (!isLoading && !user) {
       router.replace("/");

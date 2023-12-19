@@ -1,5 +1,5 @@
-import loadImageHook from "@/hooks/loadImageHook";
-import playerHook from "@/hooks/playerHook";
+import useLoadImageHook from "@/hooks/useLoadImageHook";
+import usePlayerHook from "@/hooks/usePlayerHook";
 import { Song } from "@/types/types-custom";
 import Image from "next/image";
 import React from "react";
@@ -10,8 +10,8 @@ interface mediaItemProps {
 }
 
 const MediaItem = (props: mediaItemProps) => {
-  const image_path = loadImageHook(props.data);
-  const player = playerHook();
+  const image_path = useLoadImageHook(props.data);
+  const player = usePlayerHook();
   const handleClick = () => {
     if (props.onClick) {
       return props.onClick(props.data.id);

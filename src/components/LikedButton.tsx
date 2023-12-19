@@ -1,5 +1,5 @@
-import AuthModalControllerHook from "@/hooks/AuthModalControllerHook";
-import { getUserHook } from "@/hooks/getUserHook";
+import useAuthModalControllerHook from "@/hooks/useAuthModalControllerHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -13,8 +13,8 @@ interface likedButtonProps {
 const LikedButton = (props: likedButtonProps) => {
   const router = useRouter();
   const { supabaseClient } = useSessionContext();
-  const authModal = AuthModalControllerHook();
-  const { user } = getUserHook();
+  const authModal = useAuthModalControllerHook();
+  const { user } = useGetUserHook();
   const [liked, setLiked] = useState<boolean>(false);
   useEffect(() => {
     if (!user?.id) {

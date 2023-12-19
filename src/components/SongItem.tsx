@@ -1,5 +1,5 @@
 "use client";
-import loadImageHook from "@/hooks/loadImageHook";
+import useLoadImageHook from "@/hooks/useLoadImageHook";
 import { Song } from "@/types/types-custom";
 import Image from "next/image";
 import React from "react";
@@ -11,7 +11,7 @@ interface songItemProps {
 }
 
 const SongItem = (props: songItemProps) => {
-  const image_path = loadImageHook(props.song);
+  const image_path = useLoadImageHook(props.song);
   return (
     <div
       onClick={() => props.onClick(props.song.id)}

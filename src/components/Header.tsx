@@ -6,13 +6,13 @@ import { BiSearch } from "react-icons/bi";
 import { HiHome } from "react-icons/hi2";
 import { LuArrowLeft, LuArrowRight, LuPlus } from "react-icons/lu";
 import Button from "./Button";
-import AuthModalControllerHook from "@/hooks/AuthModalControllerHook";
+import useAuthModalControllerHook from "@/hooks/useAuthModalControllerHook";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { getUserHook } from "@/hooks/getUserHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
 import { FaUser } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
-import playerHook from "@/hooks/playerHook";
+import usePlayerHook from "@/hooks/usePlayerHook";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -20,11 +20,11 @@ interface HeaderProps {
 }
 
 const Header = (props: HeaderProps) => {
-  const player = playerHook();
+  const player = usePlayerHook();
   const router = useRouter();
-  const { onOpen } = AuthModalControllerHook();
+  const { onOpen } = useAuthModalControllerHook();
   const supabaseClient = useSupabaseClient();
-  const { user } = getUserHook();
+  const { user } = useGetUserHook();
   const navigationArrowFnButtons = [
     {
       Icon: LuArrowLeft,

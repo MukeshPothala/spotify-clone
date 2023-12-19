@@ -7,14 +7,14 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 
 import { postData } from "@/libs/helpers";
-import subscriptionModalHook from "@/hooks/subscriptionModalHook";
-import { getUserHook } from "@/hooks/getUserHook";
+import useSubscriptionModalHook from "@/hooks/useSubscriptionModalHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
 import toast from "react-hot-toast";
 
 const AccountContent = () => {
   const router = useRouter();
-  const subscribeModal = subscriptionModalHook();
-  const { isLoading, subscription, user } = getUserHook();
+  const subscribeModal = useSubscriptionModalHook();
+  const { isLoading, subscription, user } = useGetUserHook();
 
   const [loading, setLoading] = useState(false);
 

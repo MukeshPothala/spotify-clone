@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from 'react'
 import Modal from './Modal'
-import subscriptionModalHook from '@/hooks/subscriptionModalHook';
-import { getUserHook } from '@/hooks/getUserHook';
+import useSubscriptionModalHook from '@/hooks/useSubscriptionModalHook';
+import { useGetUserHook } from '@/hooks/useGetUserHook';
 import { Price, ProductWithPrice } from '@/types/types-custom';
 import toast from 'react-hot-toast';
 import { postData } from '@/libs/helpers';
@@ -24,8 +24,8 @@ interface SubscriptionModalProps {
   };
 
 const SubscriptionModal = ({products}:SubscriptionModalProps) => {
-    const subscribeModal = subscriptionModalHook();
-    const { user, isLoading, subscription } = getUserHook();
+    const subscribeModal = useSubscriptionModalHook();
+    const { user, isLoading, subscription } = useGetUserHook();
   
     const [priceIdLoading, setPriceIdLoading] = useState<string>();
   

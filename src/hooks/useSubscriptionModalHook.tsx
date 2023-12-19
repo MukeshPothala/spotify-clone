@@ -1,16 +1,16 @@
 import { create } from "zustand";
 
-interface AuthModalStore {
+interface subscriptionModalStore {
     isOpen: boolean,
     onOpen: ()=>void,
     onClose: ()=>void
 }
 
-const AuthModalControllerHook = create<AuthModalStore>((set)=>({
+const useSubscriptionModalHook = create<subscriptionModalStore>((set)=>({
     isOpen: false,
     onOpen: () => set({isOpen: true}),
     onClose: ()=> set({isOpen: false})
 }))
 
-export default AuthModalControllerHook;
+export default useSubscriptionModalHook;
 

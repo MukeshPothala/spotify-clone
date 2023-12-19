@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import Modal from "./Modal";
-import uploadModalControllerHook from "@/hooks/uploadModalControllerHook";
+import useUploadModalControllerHook from "@/hooks/useUploadModalControllerHook";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Button from "./Button";
 import toast from "react-hot-toast";
-import { getUserHook } from "@/hooks/getUserHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
@@ -15,8 +15,8 @@ const UploadModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const { user } = getUserHook();
-  const uploadModalHook = uploadModalControllerHook();
+  const { user } = useGetUserHook();
+  const uploadModalHook = useUploadModalControllerHook();
   const supabaseClient = useSupabaseClient();
 
   const { register, handleSubmit, reset } = useForm<FieldValues>({

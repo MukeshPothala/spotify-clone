@@ -1,5 +1,5 @@
 "use client";
-import debounceHook from "@/hooks/debounceHook";
+import useDebounceHook from "@/hooks/useDebounceHook";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import qs from 'query-string';
@@ -8,7 +8,7 @@ import Input from "./Input";
 const SearchInput = () => {
   const router = useRouter();
   const [value, setValue] = useState<string>("");
-  const debounceValue = debounceHook<string>(value, 500);
+  const debounceValue = useDebounceHook<string>(value, 500);
   useEffect(()=>{
     const query = {
         searchTerm: debounceValue,

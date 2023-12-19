@@ -1,24 +1,24 @@
-import AuthModalControllerHook from "@/hooks/AuthModalControllerHook";
-import { getUserHook } from "@/hooks/getUserHook";
-import uploadModalControllerHook from "@/hooks/uploadModalControllerHook";
+import useAuthModalControllerHook from "@/hooks/useAuthModalControllerHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
+import useUploadModalControllerHook from "@/hooks/useUploadModalControllerHook";
 import { Song } from "@/types/types-custom";
 import React from "react";
 import { LuPlus } from "react-icons/lu";
 
 import { MdLibraryMusic } from "react-icons/md";
 import MediaItem from "./MediaItem";
-import onPlayHook from "@/hooks/onPlayHook";
-import subscriptionModalHook from "@/hooks/subscriptionModalHook";
+import useOnPlayHook from "@/hooks/useOnPlayHook";
+import useSubscriptionModalHook from "@/hooks/useSubscriptionModalHook";
 
 interface libraryProps {
   songs: Song[];
 }
 
 const Library = (props: libraryProps) => {
-    const authModal = AuthModalControllerHook();
-    const uploadModal = uploadModalControllerHook();
-    const {user, subscription} = getUserHook();
-    const subscriptionModal = subscriptionModalHook();
+    const authModal = useAuthModalControllerHook();
+    const uploadModal = useUploadModalControllerHook();
+    const {user, subscription} = useGetUserHook();
+    const subscriptionModal = useSubscriptionModalHook();
     const uploadSongsFn = () => {
         if(!user) {
           return authModal.onOpen();
@@ -28,7 +28,7 @@ const Library = (props: libraryProps) => {
         }
         return uploadModal.onOpen();
     }
-    const onPlay = onPlayHook(props.songs);
+    const onPlay = useOnPlayHook(props.songs);
   return (
     <div className="flex flex-col">
       <div className="flex flex-row items-center justify-between w-full px-5 py-4">

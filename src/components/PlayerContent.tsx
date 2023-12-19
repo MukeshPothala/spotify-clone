@@ -11,7 +11,7 @@ import {
   IoVolumeMute,
 } from "react-icons/io5";
 import Slider from "./Slider";
-import playerHook from "@/hooks/playerHook";
+import usePlayerHook from "@/hooks/usePlayerHook";
 import useSound from "use-sound";
 
 interface playerContentProps {
@@ -20,7 +20,7 @@ interface playerContentProps {
 }
 
 const PlayerContent = (props: playerContentProps) => {
-  const player = playerHook();
+  const player = usePlayerHook();
   const [volume, setVolume] = useState<number>(1);
   const [playing, setPlaying] = useState<boolean>(false);
   const Icon = !playing ? RiPlayFill : IoPauseSharp;

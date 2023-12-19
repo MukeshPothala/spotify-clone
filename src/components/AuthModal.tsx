@@ -8,13 +8,13 @@ import {
 import { useRouter } from "next/navigation";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-import AuthModalControllerHook from "@/hooks/AuthModalControllerHook";
+import useAuthModalControllerHook from "@/hooks/useAuthModalControllerHook";
 
 const AuthModal = () => {
   const supaClient = useSupabaseClient();
   const router = useRouter();
   const { session } = useSessionContext();
-  const { onClose, isOpen } = AuthModalControllerHook();
+  const { onClose, isOpen } = useAuthModalControllerHook();
   useEffect(() => {
     if (session) {
       router.refresh();

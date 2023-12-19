@@ -6,10 +6,10 @@ interface UploadModalStore {
     onClose: ()=>void
 }
 
-const uploadModalControllerHook = create<UploadModalStore>((set)=>({
+const useUploadModalControllerHook = create<UploadModalStore>((set)=>({
     isOpen: false,
     onOpen: () => set({isOpen: true}),
     onClose: ()=> set({isOpen: false})
 }))
 
-export default uploadModalControllerHook;
+export default useUploadModalControllerHook;

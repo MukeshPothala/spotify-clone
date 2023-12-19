@@ -4,7 +4,7 @@ import { useSessionContext } from "@supabase/auth-helpers-react";
 import React, { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 
-const getSongByIdHook = (id?: string) => {
+const useGetSongByIdHook = (id?: string) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [song, setSong] = useState<Song | undefined>(undefined);
   const { supabaseClient } = useSessionContext();
@@ -38,4 +38,4 @@ const getSongByIdHook = (id?: string) => {
   );
 };
 
-export default getSongByIdHook;
+export default useGetSongByIdHook;

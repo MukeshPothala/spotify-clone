@@ -1,4 +1,4 @@
-import { MyUserContextProvider } from '@/hooks/getUserHook'
+import { MyUserContextProvider } from '@/hooks/useGetUserHook'
 import React from 'react'
 
 interface UserProviderProps {

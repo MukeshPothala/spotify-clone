@@ -1,7 +1,7 @@
 "use client";
 
 import SongItem from "@/components/SongItem";
-import onPlayHook from "@/hooks/onPlayHook";
+import useOnPlayHook from "@/hooks/useOnPlayHook";
 import { Song } from "@/types/types-custom";
 import React from "react";
 
@@ -10,7 +10,7 @@ interface PageContentProps {
 }
 
 const PageContent = (props: PageContentProps) => {
-  const onplay = onPlayHook(props.songs);
+  const onplay = useOnPlayHook(props.songs);
   if (props.songs.length === 0) {
     return (
       <div className="mt-4 text-neutral-400">

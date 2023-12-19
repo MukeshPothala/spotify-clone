@@ -1,7 +1,7 @@
 import { Song } from "@/types/types-custom";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-const loadImageHook = (song: Song) => {
+const useLoadImageHook = (song: Song) => {
     const supabaseClient = useSupabaseClient();
     if(!song) {
         return null;
@@ -11,4 +11,4 @@ const loadImageHook = (song: Song) => {
     return imageData.publicUrl;
 }
 
-export default loadImageHook;
+export default useLoadImageHook;

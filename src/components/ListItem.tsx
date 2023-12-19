@@ -4,8 +4,8 @@ import React from "react";
 import Image from "next/image";
 
 import { RiPlayFill } from "react-icons/ri";
-import { getUserHook } from "@/hooks/getUserHook";
-import AuthModalControllerHook from "@/hooks/AuthModalControllerHook";
+import { useGetUserHook } from "@/hooks/useGetUserHook";
+import useAuthModalControllerHook from "@/hooks/useAuthModalControllerHook";
 
 interface ListItemProps {
   image: string;
@@ -15,8 +15,8 @@ interface ListItemProps {
 
 const ListItem = (props: ListItemProps) => {
   const router = useRouter();
-  const {user} = getUserHook();
-  const authModal = AuthModalControllerHook();
+  const {user} = useGetUserHook();
+  const authModal = useAuthModalControllerHook();
   const redirectFn = () => {
     if(!user){
       return authModal.onOpen();

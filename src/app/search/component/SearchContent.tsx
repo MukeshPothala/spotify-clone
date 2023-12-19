@@ -1,7 +1,7 @@
 "use client";
 import LikedButton from "@/components/LikedButton";
 import MediaItem from "@/components/MediaItem";
-import onPlayHook from "@/hooks/onPlayHook";
+import useOnPlayHook from "@/hooks/useOnPlayHook";
 import { Song } from "@/types/types-custom";
 import React from "react";
 
@@ -10,7 +10,7 @@ interface searchContentProps {
 }
 
 const SearchContent = (props: searchContentProps) => {
-  const onPlay = onPlayHook(props.songs);
+  const onPlay = useOnPlayHook(props.songs);
   if (props.songs.length === 0) {
     return (
       <div className="flex flex-col gap-y-2 w-full px-6 text-neutral-400">

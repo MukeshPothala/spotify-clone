@@ -9,7 +9,7 @@ import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Library from "./Library";
 import { Song } from "@/types/types-custom";
-import playerHook from "@/hooks/playerHook";
+import usePlayerHook from "@/hooks/usePlayerHook";
 import { twMerge } from "tailwind-merge";
 
 interface SidebarProps {
@@ -19,7 +19,7 @@ interface SidebarProps {
 
 function Sidebar(props: SidebarProps) {
   const pathname = usePathname();
-  const player = playerHook();
+  const player = usePlayerHook();
   const routes = useMemo(() => {
     return [
       {

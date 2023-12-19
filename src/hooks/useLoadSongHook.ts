@@ -2,7 +2,7 @@ import { Song } from "@/types/types-custom";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React from "react";
 
-const loadSongHook = (song: Song) => {
+const useLoadSongHook = (song: Song) => {
   const supabaseClient = useSupabaseClient();
   if (!song) {
     return "";
@@ -11,4 +11,4 @@ const loadSongHook = (song: Song) => {
   return songData.publicUrl;
 };
 
-export default loadSongHook;
+export default useLoadSongHook;

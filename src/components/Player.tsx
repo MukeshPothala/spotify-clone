@@ -1,14 +1,14 @@
 "use client"
-import getSongByIdHook from "@/hooks/getSongByIdHook";
-import loadSongHook from "@/hooks/loadSongHook";
-import playerHook from "@/hooks/playerHook";
+import useGetSongByIdHook from "@/hooks/useGetSongByIdHook";
+import useLoadSongHook from "@/hooks/useLoadSongHook";
+import usePlayerHook from "@/hooks/usePlayerHook";
 import React from "react";
 import PlayerContent from "./PlayerContent";
 
 const Player = () => {
-  const player = playerHook();
-  const { song } = getSongByIdHook(player.activeId);
-  const song_url = loadSongHook(song!);
+  const player = usePlayerHook();
+  const { song } = useGetSongByIdHook(player.activeId);
+  const song_url = useLoadSongHook(song!);
   if(!song || !song_url || !player.activeId){
     return null;
   }

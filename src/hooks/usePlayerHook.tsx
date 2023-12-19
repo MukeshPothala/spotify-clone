@@ -8,7 +8,7 @@ interface PlayerStore {
   reset: () => void;
 }
 
-const playerHook = create<PlayerStore>((set) => ({
+const usePlayerHook = create<PlayerStore>((set) => ({
   ids: [],
   activeId: undefined,
   setId: (id: string) => set({ activeId: id }),
@@ -16,4 +16,4 @@ const playerHook = create<PlayerStore>((set) => ({
   reset: () => set({ ids: [], activeId: undefined })
 }));
 
-export default playerHook;
+export default usePlayerHook;
