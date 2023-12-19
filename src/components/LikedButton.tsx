@@ -1,3 +1,4 @@
+"use client"
 import useAuthModalControllerHook from "@/hooks/useAuthModalControllerHook";
 import { useGetUserHook } from "@/hooks/useGetUserHook";
 import { useSessionContext } from "@supabase/auth-helpers-react";
